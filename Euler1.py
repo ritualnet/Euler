@@ -34,6 +34,56 @@ def euler2(limit):
     return sumr
 
 
-print("Euler 1 Result = ", euler1(3, 5, 1000))
-print("Euler 2 Result = ", euler2(4000000))
+def prime(number):
+    # return a list of prime numbers up to the number sent in via parameter
+    primelist = list()
+
+    for x in range(2, number+1):
+        cntr = 0
+        for y in range(2, x+1):
+
+            if x == y:
+                if cntr == 0:
+                    primelist.append(x)
+                break
+            elif x % y == 0:
+                cntr += 1
+                continue
+
+    return primelist
+
+
+def prime2(number):
+    cntr = 0
+    for y in range(number, 2, -1):
+
+        if number % y == 0 and number != y:
+            cntr += 1
+    if cntr == 0:
+        return True
+    else:
+        return False
+
+
+
+
+def euler3(test):
+    # The prime factors of 13195 are 5, 7, 13 and 29.
+    # What is the largest prime factor of the number 600851475143 ?
+    # work backwards. All we need is the first prime number we hit, that is a factor of the number.
+    #print("test", test, "test//2", test//2)
+    for x in range(test, 2, -1):
+        #print(x)
+        if test % x == 0:
+            #print("Check Prime2 for", x)
+            if prime2(x):
+                return x
+
+        else:
+            continue
+
+
+# #  print("Euler 1 Result = ", euler1(3, 5, 1000))
+# print("Euler 2 Result = ", euler2(4000000))
+print("Euler 3 Result = ", euler3(600851475143))
 
