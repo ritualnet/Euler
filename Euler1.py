@@ -19,7 +19,7 @@ def euler2(limit):
     # By considering the terms in the Fibonacci sequence whose values do not exceed four million,
     # find the sum of the even-valued terms.
 
-    num1 = sum = num2 = 0
+    num1 = sumr = num2 = 0
 
     while num2 <= limit:
         if num1 == 0:
@@ -29,12 +29,11 @@ def euler2(limit):
         num2 = num3
 
         if num2 % 2 == 0:
-            sum += num2
+            sumr += num2
 
-    return sum
+    return sumr
 
 
-# print(euler1(3, 5, 1000))
-print(euler2(4000000))
-# print(euler2(400))
-# 233168
+print("Euler 1 Result = ", euler1(3, 5, 1000))
+print("Euler 2 Result = ", euler2(4000000))
+
